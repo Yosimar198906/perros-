@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14213D">
+<title>Perfil de emergencia de mi perro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D; --ink-2:#1F3158; --muted:#58647A; --bg:#EEF4FB; --card:#FFFFFF; --line:#DCE4EF;
+    --sun:#FFC233; --sun-dark:#E3A400; --sun-soft:#FFF5D6;
+    --alert:#D93A2E; --alert-soft:#FFEDEA;
+    --green:#25D366; --green-dark:#128C4A;
+    --head:"Fredoka",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{background:var(--bg)}
+  html,body{color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:17px;line-height:1.5}
+  body{min-height:100vh;overflow-x:hidden;
+    padding-bottom:calc(170px + env(safe-area-inset-bottom));
+    background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27150%27 height=%27150%27 viewBox=%270 0 150 150%27%3E%3Cg fill=%27%2314213D%27 fill-opacity=%27.055%27%3E%3Cg transform=%27translate%2822 26%29 rotate%28-18%29 scale%281.5%29%27%3E%3Cellipse cx=%275.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cellipse cx=%279.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2714.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2718.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cpath d=%27M12 11.5c-3 0-6 3.2-6 6 0 1.8 1.4 2.5 3 2.5 1.1 0 2-.5 3-.5s1.9.5 3 .5c1.6 0 3-.7 3-2.5 0-2.8-3-6-6-6z%27/%3E%3C/g%3E%3Cg transform=%27translate%2892 92%29 rotate%2816%29 scale%281.5%29%27%3E%3Cellipse cx=%275.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cellipse cx=%279.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2714.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2718.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cpath d=%27M12 11.5c-3 0-6 3.2-6 6 0 1.8 1.4 2.5 3 2.5 1.1 0 2-.5 3-.5s1.9.5 3 .5c1.6 0 3-.7 3-2.5 0-2.8-3-6-6-6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 0 0/150px 150px repeat,
+      linear-gradient(180deg,#CFE1F7 0,#E3EDF9 300px,#EEF4FB 560px) no-repeat;
+    background-color:var(--bg)}
+  .wrap{max-width:480px;margin:0 auto}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+  /* Encabezado = correa del collar con costura */
+  .alert-bar{position:relative;color:#fff;text-align:center;
+    background:linear-gradient(180deg,var(--ink-2),var(--ink) 70%);
+    padding:calc(14px + env(safe-area-inset-top)) 16px 24px;
+    font-family:var(--head);font-weight:600;font-size:1.05rem;letter-spacing:.01em;
+    box-shadow:0 10px 16px -10px rgba(20,33,61,.6);
+    display:flex;align-items:center;justify-content:center;gap:10px}
+  .alert-bar::after{content:"";position:absolute;left:14px;right:14px;bottom:9px;
+    border-bottom:2.5px dashed rgba(255,194,51,.8)}
+  .alert-bar svg{width:24px;height:24px;flex:none;color:var(--sun)}
+
+  main{padding:16px}
+  .card{background:var(--card);border-radius:24px;padding:20px;margin-bottom:14px;
+    border:1px solid var(--line);box-shadow:0 10px 22px -14px rgba(20,33,61,.3)}
+
+  /* Chapa del collar */
+  .profile{position:relative;text-align:center;border:0;
+    background:linear-gradient(150deg,#FFD661 0,var(--sun) 50%,#F7B519 100%);
+    margin-top:10px;padding:52px 20px 30px;border-radius:46px 46px 58px 58px;
+    box-shadow:0 24px 34px -16px rgba(20,33,61,.5),inset 0 -7px 0 rgba(20,33,61,.09),inset 0 3px 0 rgba(255,255,255,.55);
+    outline:2.5px dashed rgba(20,33,61,.28);outline-offset:-13px;
+    transform-origin:50% -34px;animation:swing 1.8s cubic-bezier(.3,.7,.4,1) 1}
+  .profile::before{content:"";position:absolute;top:15px;left:50%;width:18px;height:18px;margin-left:-9px;
+    border-radius:50%;background:#D8E6F8;box-shadow:inset 0 2px 3px rgba(20,33,61,.55)}
+  .profile::after{content:"";position:absolute;top:-36px;left:50%;width:58px;height:58px;margin-left:-29px;
+    border-radius:50%;border:6px solid #A3ADC0;pointer-events:none;
+    box-shadow:0 3px 5px rgba(20,33,61,.35),inset 0 2px 2px rgba(255,255,255,.6)}
+  @keyframes swing{0%{transform:rotate(-7deg)}25%{transform:rotate(4deg)}
+    50%{transform:rotate(-2.5deg)}75%{transform:rotate(1deg)}100%{transform:rotate(0)}}
+
+  .photo{width:160px;height:160px;border-radius:50%;object-fit:cover;
+    border:6px solid #fff;box-shadow:0 0 0 3px var(--ink),0 12px 20px -8px rgba(20,33,61,.6);background:#fff;
+    display:block;margin:0 auto 16px}
+  .photo-ph{display:flex;align-items:center;justify-content:center;background:var(--sun-soft)}
+  .photo-ph svg{width:108px;height:108px}
+  .name{font-family:var(--head);font-size:2.4rem;line-height:1.06;font-weight:700;
+    letter-spacing:-.01em;word-break:break-word}
+  .tagline{margin-top:8px;font-weight:800;font-size:1rem;color:rgba(20,33,61,.8)}
+  .blood{max-width:100%;display:inline-flex;align-items:center;gap:10px;margin-top:18px;
+    background:var(--ink);color:#fff;border-radius:999px;padding:8px 22px 8px 18px;
+    box-shadow:0 6px 12px -6px rgba(20,33,61,.7)}
+  .blood small{font-size:.78rem;font-weight:700;color:#C6D0E3;text-align:left;line-height:1.1}
+  .blood strong{font-family:var(--head);font-size:1.3rem;font-weight:600;line-height:1.15;color:var(--sun);text-align:left;word-break:break-word}
+
+  /* Salud */
+  .medical{background:#fff;border:0;border-left:8px solid var(--alert);border-radius:12px 24px 24px 12px}
+  .medical h2{color:var(--alert);font-family:var(--head);font-size:1.1rem;font-weight:600;margin-bottom:6px;
+    display:flex;align-items:center;gap:10px}
+  .medical h2 svg{width:28px;height:28px;padding:5px;border-radius:50%;background:var(--alert);color:#fff;flex:none}
+  .medical h2 ~ h2{padding-top:16px;border-top:2px dotted var(--line)}
+  .medical p{font-size:1.15rem;font-weight:700;white-space:pre-line;word-break:break-word}
+
+  .extra{background:var(--sun-soft);border:0;position:relative;overflow:hidden}
+  .extra::after{content:"";position:absolute;right:-18px;bottom:-22px;width:92px;height:92px;opacity:.14;
+    background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27150%27 height=%27150%27 viewBox=%270 0 150 150%27%3E%3Cg fill=%27%2314213D%27 fill-opacity=%27.055%27%3E%3Cg transform=%27translate%2822 26%29 rotate%28-18%29 scale%281.5%29%27%3E%3Cellipse cx=%275.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cellipse cx=%279.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2714.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2718.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cpath d=%27M12 11.5c-3 0-6 3.2-6 6 0 1.8 1.4 2.5 3 2.5 1.1 0 2-.5 3-.5s1.9.5 3 .5c1.6 0 3-.7 3-2.5 0-2.8-3-6-6-6z%27/%3E%3C/g%3E%3Cg transform=%27translate%2892 92%29 rotate%2816%29 scale%281.5%29%27%3E%3Cellipse cx=%275.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cellipse cx=%279.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2714.5%27 cy=%276.5%27 rx=%272%27 ry=%272.8%27/%3E%3Cellipse cx=%2718.5%27 cy=%2711%27 rx=%272%27 ry=%272.6%27/%3E%3Cpath d=%27M12 11.5c-3 0-6 3.2-6 6 0 1.8 1.4 2.5 3 2.5 1.1 0 2-.5 3-.5s1.9.5 3 .5c1.6 0 3-.7 3-2.5 0-2.8-3-6-6-6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 0 0/150px 150px;transform:rotate(-12deg);pointer-events:none}
+  .extra h2{font-family:var(--head);font-size:1.05rem;font-weight:600;margin-bottom:4px}
+  .extra p{white-space:pre-line;word-break:break-word;position:relative}
+
+  /* Reproductor de audio */
+  .audio-btn{width:100%;border:0;border-radius:999px;background:var(--ink);color:#fff;
+    font:inherit;font-weight:800;font-size:1.05rem;padding:16px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:12px}
+  .audio-btn svg{width:26px;height:26px;color:var(--sun)}
+  .audio-btn.playing{background:var(--alert)}
+  .audio-btn.playing svg{color:#fff}
+  .progress{height:8px;border-radius:4px;background:var(--line);margin-top:14px;overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:var(--sun-dark)}
+  .time{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-top:6px}
+
+  /* Acciones fijas */
+  .actions{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:28px 28px 0 0;
+    box-shadow:0 -12px 30px -14px rgba(20,33,61,.4);
+    padding:16px 16px calc(12px + env(safe-area-inset-bottom))}
+  .actions .wrap{display:grid;gap:10px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    min-height:60px;border:0;border-radius:20px;font:inherit;font-family:var(--head);font-weight:600;
+    font-size:1.12rem;color:#fff;text-decoration:none;cursor:pointer;padding:10px 16px;text-align:center}
+  .btn svg{width:26px;height:26px;flex:none}
+  .btn-call{background:var(--sun);color:var(--ink);box-shadow:inset 0 -4px 0 rgba(20,33,61,.15)}
+  .btn-call:active{background:var(--sun-dark)}
+  .btn-wa{background:var(--green);color:#06351A;box-shadow:inset 0 -4px 0 rgba(6,53,26,.2)}
+  .btn-wa:active{background:var(--green-dark);color:#fff}
+  .btn[disabled]{opacity:.7}
+  .hint{font-size:.8rem;color:var(--muted);text-align:center;min-height:1.1em}
+
+  /* Estados */
+  .state{min-height:70vh;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;gap:14px;padding:24px}
+  .state h1{font-family:var(--head);font-size:1.5rem;font-weight:600}
+  .state p{color:var(--muted);max-width:30ch}
+  .spinner{width:56px;height:56px;border-radius:50%;border:6px solid #fff;
+    border-top-color:var(--sun-dark);animation:spin .9s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .err-icon{width:64px;height:64px;color:var(--alert)}
+
+  /* Inicio y "listo" */
+  #home .card,#done .card{text-align:center;padding-top:26px}
+  .dog-art svg{width:104px;height:104px;display:block;margin:0 auto 10px}
+  .dog-art{filter:drop-shadow(0 8px 8px rgba(20,33,61,.18))}
+
+  /* Formularios */
+  .link{color:var(--muted);font-size:.95rem}
+  .lbl{display:block;font-weight:800;font-size:.95rem;margin:14px 0 5px;text-align:left}
+  .field{font:inherit;font-size:1.05rem;padding:13px 14px;border:2px solid var(--line);
+    border-radius:16px;width:100%;background:#fff;color:var(--ink)}
+  .field:focus{outline:3px solid var(--sun);border-color:var(--ink)}
+  textarea.field{min-height:84px;resize:vertical}
+  .pick{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;border-radius:18px;
+    border:2px dashed var(--sun-dark);background:var(--sun-soft);font-weight:800;cursor:pointer;color:var(--ink)}
+  .pick input{display:none}
+  .ed-photo{width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 12px;
+    border:5px solid #fff;box-shadow:0 0 0 3px var(--sun),0 10px 16px -8px rgba(20,33,61,.5)}
+  .btn-ghost{background:#E3EAF4;color:var(--ink)}
+  .btn-ghost:active{background:var(--line)}
+  .stack{display:grid;gap:10px;margin-top:16px}
+  .keybox{background:var(--sun-soft);border:2px dashed var(--sun-dark);border-radius:18px;padding:14px;margin-top:14px;
+    font-weight:700;text-align:left}
+  .keybox b{font-family:var(--head);font-size:1.35rem;letter-spacing:.05em}
+  .page-title{font-family:var(--head);font-size:1.65rem;font-weight:600;line-height:1.15;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:6px}
+  .msg{min-height:1.2em;font-size:.95rem;text-align:center;margin-top:6px}
+  .msg.err{color:var(--alert);font-weight:800}
+  .msg.ok{color:var(--green-dark);font-weight:800}
+  .hidden{display:none!important}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="alert-bar" role="banner">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="5.5" cy="11" rx="2" ry="2.6"/><ellipse cx="9.5" cy="6.5" rx="2" ry="2.8"/><ellipse cx="14.5" cy="6.5" rx="2" ry="2.8"/><ellipse cx="18.5" cy="11" rx="2" ry="2.6"/><path d="M12 11.5c-3 0-6 3.2-6 6 0 1.8 1.4 2.5 3 2.5 1.1 0 2-.5 3-.5s1.9.5 3 .5c1.6 0 3-.7 3-2.5 0-2.8-3-6-6-6z"/></svg>
+  Perfil de emergencia de mi perro
+</div>
+
+<div class="wrap">
+  <!-- Cargando -->
+  <div id="loading" class="state" role="status" aria-live="polite">
+    <div class="spinner"></div>
+    <p>Cargando ficha del perro…</p>
+  </div>
+
+  <!-- Error -->
+  <div id="error" class="state hidden" role="alert">
+    <svg class="err-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg>
+    <h1 id="error-title"></h1>
+    <p id="error-text"></p>
+  </div>
+
+  <!-- Ficha -->
+  <main id="profile" class="hidden"></main>
+
+  <!-- Inicio -->
+  <main id="home" class="hidden">
+    <section class="card">
+      <div class="dog-art" aria-hidden="true"></div>
+      <h1 class="page-title">La ficha de emergencia de tu perro</h1>
+      <p class="sub">Crea la ficha de tu perro, guarda sus datos y pega el enlace en la etiqueta NFC de su collar.</p>
+      <div class="stack">
+        <button id="go-create" class="btn btn-call" type="button">Crear la ficha de mi perro</button>
+        <button id="go-login" class="btn btn-ghost" type="button">Editar la ficha</button>
+      </div>
+      <div id="login" class="hidden">
+        <label class="lbl" for="login-id">Número de ficha</label>
+        <input id="login-id" class="field" autocomplete="off" autocapitalize="characters">
+        <label class="lbl" for="login-pin">Clave</label>
+        <input id="login-pin" class="field" type="password" inputmode="numeric" autocomplete="off">
+        <div id="login-msg" class="msg"></div>
+        <button id="login-btn" class="btn btn-call" type="button">Entrar</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Editor -->
+  <main id="editor" class="hidden">
+    <section class="card">
+      <h1 id="ed-title" class="page-title"></h1>
+      <img id="ed-photo" class="ed-photo hidden" alt="Foto de tu perro">
+      <label class="pick">
+        <span>Elegir foto de mi perro</span>
+        <input id="f-foto" type="file" accept="image/*">
+      </label>
+      <label class="lbl" for="f-nombre">Nombre del perro</label>
+      <input id="f-nombre" class="field" maxlength="80" autocomplete="off">
+      <label class="lbl" for="f-sangre">Raza</label>
+      <select id="f-sangre" class="field">
+        <option value="">No lo sé</option>
+        <option>Mestizo (criollo)</option>
+        <option>Akita</option>
+        <option>Beagle</option>
+        <option>Border Collie</option>
+        <option>Boxer</option>
+        <option>Bulldog Francés</option>
+        <option>Bulldog Inglés</option>
+        <option>Chihuahua</option>
+        <option>Chow Chow</option>
+        <option>Cocker Spaniel</option>
+        <option>Dálmata</option>
+        <option>Doberman</option>
+        <option>Golden Retriever</option>
+        <option>Gran Danés</option>
+        <option>Husky Siberiano</option>
+        <option>Labrador Retriever</option>
+        <option>Maltés</option>
+        <option>Pastor Alemán</option>
+        <option>Pastor Australiano</option>
+        <option>Pastor Belga</option>
+        <option>Pitbull</option>
+        <option>Pomerania</option>
+        <option>Poodle (Caniche)</option>
+        <option>Pug</option>
+        <option>Rottweiler</option>
+        <option>Salchicha (Dachshund)</option>
+        <option>San Bernardo</option>
+        <option>Schnauzer</option>
+        <option>Shih Tzu</option>
+        <option>Yorkshire Terrier</option>
+        <option value="__otro">Otro (escribir la raza)</option>
+      </select>
+      <input id="f-raza-otro" class="field hidden" maxlength="60" placeholder="Escribe la raza de tu perro" style="margin-top:8px">
+      <label class="lbl" for="f-alergias">Alergias</label>
+      <textarea id="f-alergias" class="field" maxlength="600" placeholder="Ej. pollo, picadura de pulga, algún medicamento"></textarea>
+      <label class="lbl" for="f-enf">¿Tiene alguna enfermedad o condición?</label>
+      <select id="f-enf" class="field"><option value="no">No</option><option value="si">Sí</option></select>
+      <textarea id="f-enf-txt" class="field hidden" maxlength="600" placeholder="¿Cuál(es)? Ej. epilepsia, diabetes, problemas del corazón, displasia"></textarea>
+      <label class="lbl" for="f-contacto1_nombre">Contacto de emergencia (dueño o familiar)</label>
+      <input id="f-contacto1_nombre" class="field" maxlength="80">
+      <label class="lbl" for="f-pais">País del teléfono</label>
+      <select id="f-pais" class="field"></select>
+      <label class="lbl" for="f-tel">Número de teléfono</label>
+      <input id="f-tel" class="field" type="tel" inputmode="numeric" placeholder="Solo números, sin el código" autocomplete="tel-national">
+      <label class="lbl" for="f-mensaje_extra">Información adicional</label>
+      <textarea id="f-mensaje_extra" class="field" maxlength="600" placeholder="Edad, tamaño, número de microchip, veterinario, medicamentos, si es nervioso o no le gusta que lo toquen…"></textarea>
+      <div id="ed-msg" class="msg"></div>
+      <div class="stack">
+        <button id="ed-save" class="btn btn-call" type="button">Guardar ficha</button>
+        <button id="ed-cancel" class="btn btn-ghost" type="button">Cancelar</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Listo -->
+  <main id="done" class="hidden">
+    <section class="card">
+      <div class="dog-art" aria-hidden="true"></div>
+      <h1 class="page-title">¡La ficha de tu perro está lista!</h1>
+      <p class="sub">Copia este enlace y grábalo en la etiqueta NFC del collar de tu perro (por ejemplo con la app NFC Tools, registro tipo URL).</p>
+      <input id="done-link" class="field" readonly>
+      <div class="stack">
+        <button id="done-copy" class="btn btn-call" type="button">Copiar enlace</button>
+        <a id="done-view" class="btn btn-ghost" href="#">Ver la ficha</a>
+      </div>
+      <div class="keybox">Estos datos son para editar la ficha de tu perro. Guárdalos, la clave no se puede recuperar:<br>
+        Número de ficha: <b id="done-id"></b><br>Clave: <b id="done-pin"></b></div>
+    </section>
+  </main>
+
+</div>
+
+
+<!-- Botones de acción -->
+<div id="actions" class="actions hidden">
+  <div class="wrap">
+    <a id="btn-call" class="btn btn-call" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+      <span id="call-label"></span>
+    </a>
+    <button id="btn-wa" class="btn btn-wa" type="button">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm5.2 14c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500.2.600.8 2 .9 2.100.1.100.1.300 0 .4-.4.700-.8.700-.5 1.200.7 1.100 1.500 1.900 2.700 2.500.4.200.6.200.8-.1.200-.3.900-1 1.100-1.400.2-.3.500-.3.700-.2l2 1c.3.100.5.200.5.300.1.200.1.800-.1 1.200z"/></svg>
+      <span>Avisar por WhatsApp con mi ubicación</span>
+    </button>
+    <div id="hint" class="hint" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN: pega aquí el enlace CSV público de tu Google Sheet
+   (Archivo → Compartir → Publicar en la Web → CSV)
+   ============================================================ */
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1SkEGWTWBgAO25VSWRUtu17oJutR5bn8owWxR0fSJqFU/export?format=csv&gid=0";
+
+/* URL de tu Apps Script (Implementar → Aplicación web). Guía en apps_script.gs.
+   Si la dejas sin configurar, el botón de cambiar foto no aparece. */
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXAWd8WGxYwEQxtQ3fk081SpdPnc0qVa14GLUQUnoFw7F4_5bhkLTTGW022-3wjtBF/exec";
+
+/* ---------- Utilidades ---------- */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const breedOf = (v) => { v = String(v ?? "").trim(); return /^(?:A|B|AB|O)[+-]$|^DEA/i.test(v) ? "" : v; };
+const digits = (s) => String(s ?? "").replace(/\D/g, "");
+
+/* Parser CSV robusto (comillas, comas y saltos de línea dentro de celdas) */
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cell = "", q = false;
+  text = text.replace(/^\uFEFF/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; }
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell); rows.push(row); row = []; cell = "";
+    } else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  return rows.filter(r => r.some(v => v.trim() !== ""));
+}
+
+function showError(title, text) {
+  $("error-title").textContent = title;
+  $("error-text").textContent = text;
+  screen("error");
+}
+
+/* Google Drive: convierte enlaces de "compartir" en enlaces directos */
+function directLink(url) {
+  url = (url || "").trim();
+  // Enlaces de Google Imágenes (imgres?imgurl=...): extrae la imagen real
+  const im = url.match(/google\.[a-z.]+\/imgres\?.*?imgurl=([^&]+)/);
+  if (im) { try { url = decodeURIComponent(im[1]); } catch (e) {} }
+  const m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
+  return m ? "https://drive.google.com/uc?export=view&id=" + m[1] : url;
+}
+function directAudio(url) {
+  url = (url || "").trim();
+  const m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
+  return m ? "https://drive.google.com/uc?export=download&id=" + m[1] : url;
+}
+
+const fmt = (t) => {
+  if (!isFinite(t)) return "0:00";
+  return Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
+};
+
+/* ---------- Iconos ---------- */
+const ICON_USER = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 15c-6 2-10 12-8 22 1 5 6 6 9 2 3-4 4-14 3-20z" fill="#B9794A"/><path d="M50 15c6 2 10 12 8 22-1 5-6 6-9 2-3-4-4-14-3-20z" fill="#B9794A"/><ellipse cx="32" cy="34" rx="19" ry="20" fill="#F2C48D"/><ellipse cx="32" cy="43" rx="11" ry="9" fill="#FFF3DF"/><path d="M29 46h6v5a3 3 0 0 1-6 0z" fill="#F27D8E"/><circle cx="24" cy="30" r="2.7" fill="#14213D"/><circle cx="40" cy="30" r="2.7" fill="#14213D"/><circle cx="24.9" cy="29.1" r=".9" fill="#fff"/><circle cx="40.9" cy="29.1" r=".9" fill="#fff"/><ellipse cx="32" cy="38" rx="4.4" ry="3.1" fill="#14213D"/><path d="M32 41v3M32 44c-2 3-6 3-7 0M32 44c2 3 6 3 7 0" stroke="#14213D" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>';
+const ICON_CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+const ICON_ALERT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.700 3.900a2 2 0 0 0-3.400 0z"/><path d="M12 9v4M12 17h.01"/></svg>';
+
+/* ---------- Render ---------- */
+function render(p) {
+  const nombre = p.nombre || "Sin nombre";
+  const tel = digits(p.contacto1_tel);
+  const contacto = p.contacto1_nombre || "su dueño";
+
+  let html = '<section class="card profile">';
+  html += '<div class="photo-wrap" id="photo-wrap">';
+  html += p.foto
+    ? `<img class="photo" id="photo" alt="Foto de ${esc(nombre)}" src="${esc(directLink(p.foto))}">`
+    : `<div class="photo photo-ph" id="photo">${ICON_USER}</div>`;
+  html += '</div>';
+  html += `<h1 class="name">${esc(nombre)}</h1>`;
+  html += '<p class="tagline">Si me encontraste, avisa a mi familia.</p>';
+  const raza = breedOf(p.sangre);
+  if (raza) html += `<div class="blood"><small>Raza</small><strong>${esc(raza)}</strong></div>`;
+  html += "</section>";
+
+  const enf = (p.enfermedades || "").trim();
+  html += `<section class="card medical"><h2>${ICON_ALERT} Alergias</h2>
+    <p>${esc(p.alergias) || "Ninguna registrada"}</p>
+    <h2 style="margin-top:14px">${ICON_ALERT} Enfermedades o condiciones</h2>
+    <p>${!enf ? "No indicado" : /^no$/i.test(enf) ? "Ninguna declarada" : esc(enf)}</p></section>`;
+
+  if (p.audio) {
+    html += `<section class="card">
+      <button id="audio-btn" class="audio-btn" type="button">${ICON_PLAY}<span>Escuchar nota de voz</span></button>
+      <div class="progress"><i id="audio-bar"></i></div>
+      <div class="time"><span id="audio-cur">0:00</span><span id="audio-dur">0:00</span></div>
+      <audio id="audio" preload="metadata" src="${esc(directAudio(p.audio))}"></audio>
+      <p id="audio-err" class="hint hidden">No se pudo reproducir el audio.</p>
+    </section>`;
+  }
+
+  if (p.mensaje_extra) {
+    html += `<section class="card extra"><h2>Información adicional</h2><p>${esc(p.mensaje_extra)}</p></section>`;
+  }
+
+  html += '<p style="text-align:center;margin-top:6px"><a href="#" id="edit-link" class="link">Editar esta ficha</a></p>';
+  $("profile").innerHTML = html;
+
+  // Foto: si falla, muestra marcador
+  const photo = $("photo");
+  if (photo) photo.onerror = () => {
+    const ph = document.createElement("div");
+    ph.className = "photo photo-ph"; ph.innerHTML = ICON_USER;
+    photo.replaceWith(ph);
+  };
+
+  setupAudio();
+  $("edit-link").onclick = (e) => { e.preventDefault(); showHome(); $("login").classList.remove("hidden"); $("login-id").value = p.id || ""; };
+  setupActions(nombre, contacto, tel);
+
+  screen("profile");
+}
+
+/* ---------- Audio ---------- */
+function setupAudio() {
+  const audio = $("audio"); if (!audio) return;
+  const btn = $("audio-btn"), bar = $("audio-bar");
+  const label = () => btn.querySelector("span");
+  btn.onclick = () => {
+    if (audio.paused) audio.play().catch(() => $("audio-err").classList.remove("hidden"));
+    else audio.pause();
+  };
+  audio.onplay = () => { btn.classList.add("playing"); btn.innerHTML = ICON_PAUSE + "<span>Pausar nota de voz</span>"; };
+  const reset = () => { btn.classList.remove("playing"); btn.innerHTML = ICON_PLAY + "<span>Escuchar nota de voz</span>"; };
+  audio.onpause = reset;
+  audio.onended = () => { reset(); bar.style.width = "0"; };
+  audio.onloadedmetadata = () => $("audio-dur").textContent = fmt(audio.duration);
+  audio.ontimeupdate = () => {
+    $("audio-cur").textContent = fmt(audio.currentTime);
+    bar.style.width = (audio.duration ? audio.currentTime / audio.duration * 100 : 0) + "%";
+  };
+  audio.onerror = () => $("audio-err").classList.remove("hidden");
+}
+
+
+/* ---------- Cambiar foto desde la galería ---------- */
+// Recorta al centro, reduce a 256 px y comprime a JPEG (<45 000 caracteres: límite de una celda de Sheets)
+function compressImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const S = 256, c = document.createElement("canvas");
+      c.width = c.height = S;
+      const side = Math.min(img.width, img.height);
+      c.getContext("2d").drawImage(img, (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, S, S);
+      URL.revokeObjectURL(url);
+      let q = 0.8, out = c.toDataURL("image/jpeg", q);
+      while (out.length > 45000 && q > 0.3) { q -= 0.1; out = c.toDataURL("image/jpeg", q); }
+      out.length > 45000 ? reject(new Error("big")) : resolve(out);
+    };
+    img.onerror = () => reject(new Error("img"));
+    img.src = url;
+  });
+}
+
+/* ---------- Botones de acción ---------- */
+function setupActions(nombre, contacto, tel) {
+  $("call-label").textContent = "Llamar a " + contacto;
+  const call = $("btn-call"), wa = $("btn-wa"), hint = $("hint");
+
+  if (!tel) {
+    call.removeAttribute("href"); call.style.opacity = ".5";
+    wa.disabled = true; hint.textContent = "Esta ficha no tiene teléfono de contacto.";
+    return;
+  }
+  call.href = "tel:+" + tel;
+
+  const openWA = (mapsUrl) => {
+    let msg = "🐾 Hola, encontré a " + nombre + " (tu perro). Está conmigo y quiero ayudarlo a volver a casa.";
+    if (mapsUrl) msg += "\n📍 Estoy aquí: " + mapsUrl;
+    window.location.href = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
+  };
+
+  wa.onclick = () => {
+    if (!navigator.geolocation) { hint.textContent = "Sin GPS disponible. Abriendo WhatsApp…"; return openWA(); }
+    wa.disabled = true; hint.textContent = "Obteniendo ubicación…";
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        wa.disabled = false; hint.textContent = "";
+        openWA("https://www.google.com/maps?q=" + latitude + "," + longitude);
+      },
+      () => { // permiso denegado, timeout o error: abre WhatsApp sin mapa
+        wa.disabled = false; hint.textContent = "";
+        openWA();
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+    );
+  };
+}
+
+/* ---------- Pantallas y API ---------- */
+const SCREENS = ["loading", "error", "profile", "home", "editor", "done"];
+function screen(name) {
+  SCREENS.forEach(n => $(n).classList.toggle("hidden", n !== name));
+  $("actions").classList.toggle("hidden", name !== "profile");
+  window.scrollTo(0, 0);
+}
+const HAS_API = !APPS_SCRIPT_URL.startsWith("PEGA_AQUI");
+async function api(body) {
+  const r = await fetch(APPS_SCRIPT_URL, { method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) });
+  return r.json();
+}
+const ERR = { server: "Error en el servidor (Apps Script). Revisa la hoja y la implementación.", clave: "Clave incorrecta.", id: "No existe esa ficha.",
+  bloqueado: "Demasiados intentos. Espera 15 minutos.",
+  datos: "Revisa los datos: nombre del perro y teléfono son obligatorios.",
+  pin: "La clave debe tener de 4 a 8 números.", foto: "La foto es demasiado grande. Elige otra." };
+const errText = (c) => ERR[c] || "No se pudo completar. Revisa tu conexión.";
+const setMsg = (id, t, cls) => { $(id).textContent = t; $(id).className = "msg " + (cls || ""); };
+
+/* Inicio / login */
+function showHome() { screen("home"); }
+async function doLogin() {
+  const id = $("login-id").value.trim(), pin = $("login-pin").value.trim();
+  if (!id || !pin) return setMsg("login-msg", "Escribe tu número de ficha y tu clave.", "err");
+  setMsg("login-msg", "Entrando…");
+  try {
+    const r = await api({ action: "get", id, pin });
+    if (!r.ok) throw new Error(r.error);
+    setMsg("login-msg", "");
+    openEditor({ mode: "edit", id: r.id || id, pin, data: r.data });
+  } catch (e) { setMsg("login-msg", errText(e.message), "err"); }
+}
+
+/* Editor */
+const FIELDS = ["nombre", "alergias", "contacto1_nombre", "mensaje_extra"];
+const COUNTRIES = [["México",52],["Estados Unidos / Canadá",1],["Guatemala",502],["El Salvador",503],["Honduras",504],
+  ["Nicaragua",505],["Costa Rica",506],["Panamá",507],["Cuba",53],["Colombia",57],["Venezuela",58],["Ecuador",593],
+  ["Perú",51],["Bolivia",591],["Chile",56],["Argentina",54],["Uruguay",598],["Paraguay",595],["Brasil",55],
+  ["España",34],["Francia",33],["Italia",39],["Alemania",49],["Reino Unido",44],["Portugal",351]];
+function fillCountries() {
+  $("f-pais").innerHTML = COUNTRIES.map(c => `<option value="${c[1]}">${c[0]} (+${c[1]})</option>`).join("");
+}
+function splitTel(t) {
+  t = digits(t);
+  const codes = [...new Set(COUNTRIES.map(c => String(c[1])))].sort((a, b) => b.length - a.length);
+  for (const c of codes) if (t.startsWith(c)) return [c, t.slice(c.length)];
+  return ["52", t];
+}
+let ED = {};
+function openEditor(o) {
+  ED = { mode: o.mode, id: o.id, pin: o.pin, foto: null };
+  const d = o.data || {};
+  $("ed-title").textContent = o.mode === "create" ? "Crea tu ficha de emergencia" : "Edita tu ficha";
+  FIELDS.forEach(k => $("f-" + k).value = d[k] || "");
+  const raza = breedOf(d.sangre);
+  const known = raza && [...$("f-sangre").options].some(o => o.value === raza);
+  $("f-sangre").value = !raza ? "" : known ? raza : "__otro";
+  $("f-raza-otro").value = raza && !known ? raza : "";
+  $("f-raza-otro").classList.toggle("hidden", $("f-sangre").value !== "__otro");
+  const [cod, num] = splitTel(d.contacto1_tel || "");
+  $("f-pais").value = cod; $("f-tel").value = num;
+  const enf = (d.enfermedades || "").trim(), tiene = enf && !/^no$/i.test(enf);
+  $("f-enf").value = tiene ? "si" : "no"; $("f-enf-txt").value = tiene ? enf : "";
+  $("f-enf-txt").classList.toggle("hidden", !tiene);
+  const pv = $("ed-photo");
+  if (d.foto) { pv.src = directLink(d.foto); pv.classList.remove("hidden"); }
+  else { pv.removeAttribute("src"); pv.classList.add("hidden"); }
+  $("f-foto").value = ""; $("ed-save").disabled = false; setMsg("ed-msg", "");
+  screen("editor");
+}
+async function saveEditor() {
+  const data = {};
+  FIELDS.forEach(k => data[k] = $("f-" + k).value.trim());
+  const cod = $("f-pais").value, num = digits($("f-tel").value).replace(/^0+/, "");
+  if (!data.nombre) return setMsg("ed-msg", "Escribe el nombre de tu perro.", "err");
+  let raza = $("f-sangre").value;
+  if (raza === "__otro") {
+    raza = $("f-raza-otro").value.trim();
+    if (!raza) return setMsg("ed-msg", "Escribe la raza de tu perro.", "err");
+  }
+  data.sangre = raza;
+  if (cod === "52" && num.length !== 10) return setMsg("ed-msg", "En México el número tiene 10 dígitos.", "err");
+  if (num.length < 7 || (cod + num).length > 15) return setMsg("ed-msg", "Revisa el número de teléfono.", "err");
+  data.contacto1_tel = cod + num;
+  if ($("f-enf").value === "si") {
+    data.enfermedades = $("f-enf-txt").value.trim();
+    if (!data.enfermedades) return setMsg("ed-msg", "Escribe qué enfermedad o condición tiene.", "err");
+  } else data.enfermedades = "No";
+  if (ED.foto) data.foto = ED.foto;
+  let body;
+  if (ED.mode === "create") {
+    body = { action: "register", data };
+  } else body = { action: "update", id: ED.id, pin: ED.pin, data };
+  $("ed-save").disabled = true; setMsg("ed-msg", "Guardando…");
+  try {
+    const r = await api(body);
+    if (!r.ok) { console.error("Apps Script:", r); throw new Error(r.error); }
+    showDone(r.id || ED.id, r.pin || ED.pin);
+  } catch (e) { $("ed-save").disabled = false; setMsg("ed-msg", errText(e.message), "err"); }
+}
+function showDone(id, pin) {
+  const link = location.origin + location.pathname + "?id=" + encodeURIComponent(id);
+  $("done-id").textContent = id; $("done-pin").textContent = pin;
+  $("done-link").value = link; $("done-view").href = link;
+  $("done-copy").textContent = "Copiar enlace";
+  $("done-copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(link); }
+    catch (e) { $("done-link").select(); document.execCommand("copy"); }
+    $("done-copy").textContent = "¡Enlace copiado!";
+  };
+  screen("done");
+}
+
+/* ---------- Carga de datos ---------- */
+async function fetchProfile(id) {
+  if (HAS_API) {            // primero Apps Script (sin retraso); si falla, cae al CSV
+    try {
+      const r = await (await fetch(APPS_SCRIPT_URL + "?id=" + encodeURIComponent(id), { cache: "no-store" })).json();
+      if (r.ok) return r.data;
+      if (r.error === "id") return null;
+    } catch (e) { /* usa CSV */ }
+  }
+  if (SHEET_CSV_URL.startsWith("PEGA_AQUI")) throw new Error("config");
+  const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error("http");
+  const rows = parseCSV(await res.text());
+  const head = (rows[0] || []).map(h => h.trim().toLowerCase());
+  const idx = head.indexOf("id");
+  if (idx < 0) throw new Error("head");
+  const norm = (v) => String(v).trim().replace(/^0+(?=\d)/, "").toUpperCase();
+  const row = rows.slice(1).find(r => norm(r[idx] || "") === norm(id));
+  if (!row) return null;
+  const p = {}; head.forEach((h, i) => p[h] = (row[i] || "").trim());
+  return p;
+}
+
+async function init() {
+  fillCountries();
+  document.querySelectorAll(".dog-art").forEach(e => e.innerHTML = ICON_USER);
+  $("f-sangre").onchange = () => $("f-raza-otro").classList.toggle("hidden", $("f-sangre").value !== "__otro");
+  $("f-enf").onchange = () => $("f-enf-txt").classList.toggle("hidden", $("f-enf").value !== "si");
+  $("go-create").onclick = () => openEditor({ mode: "create" });
+  $("go-login").onclick = () => $("login").classList.toggle("hidden");
+  $("login-btn").onclick = doLogin;
+  $("ed-save").onclick = saveEditor;
+  $("ed-cancel").onclick = () => showHome();
+  $("f-foto").onchange = async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      ED.foto = await compressImage(f);
+      $("ed-photo").src = ED.foto; $("ed-photo").classList.remove("hidden"); setMsg("ed-msg", "");
+    } catch (err) { ED.foto = null; setMsg("ed-msg", "No se pudo leer esa imagen. Prueba con otra.", "err"); }
+  };
+
+  const id = (new URLSearchParams(location.search).get("id") || "").trim();
+  if (!id) { if (HAS_API) return showHome();
+    return showError("Falta el ID", "Abre esta página con un ID en la URL, por ejemplo: ?id=001"); }
+  try {
+    const p = await fetchProfile(id);
+    if (!p) return showError("Perfil no encontrado", "El ID «" + id + "» no existe en la base de datos.");
+    render(p);
+  } catch (e) {
+    console.error(e);
+    showError("No se pudo cargar", "Revisa tu conexión a internet e inténtalo de nuevo.");
+  }
+}
+init();
+</script>
+</body>
+</html>
